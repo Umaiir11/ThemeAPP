@@ -67,6 +67,7 @@ class AppTheme {
 
   static TextTheme _lightTextTheme = TextTheme(
 
+
     displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
     displayMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black87),
     bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black87),
