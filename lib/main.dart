@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'config/app_theme.dart';
 import 'mvvm/view/view_one.dart';
 import 'mvvm/view_model/theme_controller.dart';
