@@ -13,7 +13,7 @@ class AppTheme {
     colorScheme: ColorScheme.light(primary: _primaryColor, secondary: _secondaryColor),
     appBarTheme: _appBarTheme(_primaryColor, Colors.white),
     textTheme: _lightTextTheme,
-    elevatedButtonTheme: _elevatedButtonTheme(_primaryColor, Colors.white),
+    elevatedButtonTheme: _elevatedButtonTheme(Brightness.light),
     inputDecorationTheme: _inputDecorationTheme(Colors.white, Colors.black45),
     iconTheme: IconThemeData(color: _primaryColor),
     floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: _primaryColor, foregroundColor: Colors.white),
@@ -36,7 +36,7 @@ class AppTheme {
     colorScheme: ColorScheme.dark(primary: _primaryColor, secondary: _secondaryColor),
     appBarTheme: _appBarTheme(Color(0xFF1E1E1E), Colors.white),
     textTheme: _darkTextTheme,
-    elevatedButtonTheme: _elevatedButtonTheme(_primaryColor, Colors.white),
+    elevatedButtonTheme: _elevatedButtonTheme(Brightness.dark),
     inputDecorationTheme: _inputDecorationTheme(Color(0xFF1E1E1E), Colors.white54),
     iconTheme: IconThemeData(color: Colors.white),
     floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: _primaryColor, foregroundColor: Colors.white),
@@ -66,6 +66,7 @@ class AppTheme {
   );
 
   static TextTheme _lightTextTheme = TextTheme(
+
     displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
     displayMedium: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black87),
     bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black87),
@@ -79,15 +80,18 @@ class AppTheme {
     bodyMedium: TextStyle(fontSize: 14, color: Colors.white54),
   );
 
-  static ElevatedButtonThemeData _elevatedButtonTheme(Color bgColor, Color fgColor) => ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: bgColor,
-      foregroundColor: fgColor,
-      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_borderRadius)),
-      padding: _buttonPadding,
-    ),
-  );
+  static ElevatedButtonThemeData _elevatedButtonTheme(Brightness brightness) {
+    return ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: brightness == Brightness.dark ? Colors.grey : _primaryColor,
+        foregroundColor: Colors.white,
+        textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_borderRadius)),
+        padding: _buttonPadding,
+      ),
+    );
+  }
+
 
   static InputDecorationTheme _inputDecorationTheme(Color fillColor, Color hintColor) => InputDecorationTheme(
     filled: true,
